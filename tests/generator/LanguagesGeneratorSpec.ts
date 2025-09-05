@@ -44,16 +44,7 @@ describe('LanguagesGenerator', () => {
         });
         assert.equal(languages, `
         <div class="container languages-container">
-            <h3 class="bold">language</h3>
-            <ul class="minimal">
-                
-            <li>
-                <div class="subWorkInfo"><h6>language1:</h6>  <em>native</em></div>
-            </li>
-            <li>
-                <div class="subWorkInfo"><h6>language2:</h6>  <em>fluent</em></div>
-            </li>
-            </ul>
+            <h3 class="bold">language</h3>: <div class="subWorkInfo"><h6>language1</h6> (<em>native</em>)</div>,<div class="subWorkInfo"><h6>language2</h6> (<em>fluent</em>)</div>
         </div>`);
     });
 });

@@ -116,13 +116,6 @@ ul {
     line-height: 15px;
 }
 
-.left-column {
-    float: left;
-    width: 214px;
-    margin-left: 10px;
-    word-wrap: break-word;
-}
-
 .vl {
     border-right: 1px dashed gray;
 }
@@ -130,14 +123,6 @@ ul {
 .headers {
     width: auto;
     padding-bottom: 10px;
-}
-
-.right-column {
-    width: auto;
-    margin-bottom: 4em;
-    display: flex;
-    margin-left: 20px;
-    flex-direction: column;
 }
 
 .workInfo {
@@ -415,7 +400,12 @@ blockquote>*+*,
 
     .body {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        float: left;
+        margin-left: 10px;
+        word-wrap: break-word;
+        width: auto;
+        margin-bottom: 4em;
     }
 
     .icon-list {
@@ -491,17 +481,11 @@ customElements.define('time-duration', TimeDuration)
             </header> 
                 </div>
                 <div class="body">
-                <aside class="left-column">
-                    
                     
                      
+                     
                     
-                </aside>
-                <div class="vl"></div>
-                    <div class="right-column">
-                         
-                         
-                    </div>
+                    
                 </div>
             </body>
         </html>

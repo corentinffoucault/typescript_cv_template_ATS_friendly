@@ -9,18 +9,12 @@ export default class LanguagesGenerator {
         }
         return `
         <div class="container languages-container">
-            <h3 class="bold">${labels.language}</h3>
-            <ul class="minimal">
-                ${languages.map(lang => this.generateLanguage(lang)).join('')}
-            </ul>
+            <h3 class="bold">${labels.language}</h3>: ${languages.map(lang => this.generateLanguage(lang)).join(',')}
         </div>`;
     }
 
     private generateLanguage(language: Language): string {
-        return `
-            <li>
-                <div class="subWorkInfo"><h6>${language.language}:</h6>  ${this.generateFluency(language)}</div>
-            </li>`;
+        return `<div class="subWorkInfo"><h6>${language.language}</h6> (${this.generateFluency(language)})</div>`;
     }
 
     private generateFluency(language: Language): string {

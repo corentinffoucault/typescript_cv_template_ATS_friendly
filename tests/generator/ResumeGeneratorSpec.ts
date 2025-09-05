@@ -9,8 +9,7 @@ import HeaderGenerator from '../../src/generator/HeaderGenerator.js';
 import LanguageGenerator from '../../src/generator/LanguagesGenerator.js';
 import MetaGenerator from '../../src/generator/MetaGenerator.js';
 import SkillsGenerator from '../../src/generator/SkillsGenerator.js';
-import SimplifyWorksGenerator from '../../src/generator/SimplifyWorksGenerator.js';
-import SkillWorksGenerator from '../../src/generator/SkillWorksGenerator.js';
+import WorksGenerator from '../../src/generator/WorksGenerator.js';
 
 describe('ResumeGenerator', async () => {
     let resumeGenerator: ResumeGenerator;
@@ -40,15 +39,10 @@ describe('ResumeGenerator', async () => {
             generate: sinon.stub(),
         });
         skillsGenerator.generate.returns("generated skill");
-        var simplifyWorksGenerator = sinon.createStubInstance(SimplifyWorksGenerator, {
+        var worksGenerator = sinon.createStubInstance(WorksGenerator, {
             generate: sinon.stub(),
         });
-        simplifyWorksGenerator.generate.returns("generated workSimplify");
-        var skillWorksGenerator = sinon.createStubInstance(SkillWorksGenerator, {
-            generate: sinon.stub(),
-        });
-        skillWorksGenerator.generate.returns("generated workSkill");
-
+        worksGenerator.generate.returns("generated work");
         resumeGenerator = new ResumeGenerator(
             metaGenerator,
             headerGenerator,
@@ -56,8 +50,7 @@ describe('ResumeGenerator', async () => {
             languageGenerator,
             skillsGenerator,
             interestGenerator,
-            skillWorksGenerator,
-            simplifyWorksGenerator
+            worksGenerator
         );
     });
 
@@ -110,17 +103,11 @@ describe('ResumeGenerator', async () => {
                     generated header 
                 </div>
                 <div class="body">
-                <aside class="left-column">
-                    generated education
                     generated language
                     generated skill 
+                    generated work 
+                    generated education
                     generated interest
-                </aside>
-                <div class="vl"></div>
-                    <div class="right-column">
-                        generated workSkill 
-                        generated workSimplify 
-                    </div>
                 </div>
             </body>
         </html>`);
@@ -175,17 +162,11 @@ describe('ResumeGenerator', async () => {
                     generated header 
                 </div>
                 <div class="body">
-                <aside class="left-column">
-                    generated education
                     generated language
                     generated skill 
+                    generated work 
+                    generated education
                     generated interest
-                </aside>
-                <div class="vl"></div>
-                    <div class="right-column">
-                        generated workSkill 
-                        generated workSimplify 
-                    </div>
                 </div>
             </body>
         </html>`);

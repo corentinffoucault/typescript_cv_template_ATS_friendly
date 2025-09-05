@@ -9,8 +9,7 @@ import InterestGenerator from './generator/InterestsGenerator.js';
 import LanguagesGenerator from './generator/LanguagesGenerator.js';
 import MetaGenerator from './generator/MetaGenerator.js';
 import SkillsGenerator from './generator/SkillsGenerator.js';
-import SimplifyWorksGenerator from './generator/SimplifyWorksGenerator.js';
-import SkillWorksGenerator from './generator/SkillWorksGenerator.js';
+import WorksGenerator from './generator/WorksGenerator.js';
 
 import { ResumeSchema } from "../packages/json_cv_schema/src/Index.js";
 import { IResumeConvertor } from "../packages/json_cv_schema/src/type/IResumeConvertor.js";
@@ -26,8 +25,7 @@ export default class ResumeConvertor implements IResumeConvertor {
             new LanguagesGenerator(),
             new SkillsGenerator(),
             new InterestGenerator(),
-            new SkillWorksGenerator(),
-            new SimplifyWorksGenerator());
+            new WorksGenerator());
     }
 
     public async generateResume(lang: Intl.LocalesArgument, resumeJson: ResumeSchema) {

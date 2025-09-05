@@ -16,7 +16,9 @@ describe('LanguagesGenerator', () => {
             worksSkill: 'worksSkill',
             diploma: 'diploma',
             language: 'language',
-            interests: 'interests'
+            interests: 'interests',
+            techSkill: 'techSkill',
+            profile: 'profile'
         });
         assert.equal(languages, ``);
     });
@@ -40,7 +42,9 @@ describe('LanguagesGenerator', () => {
             worksSkill: 'worksSkill',
             diploma: 'diploma',
             language: 'language',
-            interests: 'interests'
+            interests: 'interests',
+            techSkill: 'techSkill',
+            profile: 'profile'
         });
         assert.equal(languages, `
         <div class="container languages-container">
@@ -48,10 +52,10 @@ describe('LanguagesGenerator', () => {
             <ul class="minimal">
                 
             <li>
-                <div class="subWorkInfo"><h6>language1:</h6>  <em>native</em></div>
+                <div class="competence-line"><h6>language1:</h6>  <p><em>native</em></p></div>
             </li>
             <li>
-                <div class="subWorkInfo"><h6>language2:</h6>  <em>fluent</em></div>
+                <div class="competence-line"><h6>language2:</h6>  <p><em>fluent</em></p></div>
             </li>
             </ul>
         </div>`);

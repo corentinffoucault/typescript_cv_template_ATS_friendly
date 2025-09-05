@@ -11,7 +11,7 @@ export default class LanguagesGenerator {
         <div class="container languages-container">
             <h3 class="bold">${labels.language}</h3>
             <ul class="minimal">
-                ${languages.map(lang => this.generateLanguage(lang)).join('')}
+                ${languages.map(language => this.generateLanguage(language)).join('')}
             </ul>
         </div>`;
     }
@@ -19,7 +19,7 @@ export default class LanguagesGenerator {
     private generateLanguage(language: Language): string {
         return `
             <li>
-                <div class="subWorkInfo"><h6>${language.language}:</h6>  ${this.generateFluency(language)}</div>
+                <div class="competence-line"><h6>${language.language}:</h6>  <p>${this.generateFluency(language)}</p></div>
             </li>`;
     }
 

@@ -16,7 +16,9 @@ describe('InterestGenerator', () => {
             worksSkill: 'worksSkill',
             diploma: 'diploma',
             language: 'language',
-            interests: 'interests'
+            interests: 'interests',
+            techSkill: 'techSkill',
+            profile: 'profile'
         });
         assert.equal(interests, ``);
     });
@@ -39,18 +41,20 @@ describe('InterestGenerator', () => {
             worksSkill: 'worksSkill',
             diploma: 'diploma',
             language: 'language',
-            interests: 'interests'
+            interests: 'interests',
+            techSkill: 'techSkill',
+            profile: 'profile'
         });
         assert.equal(interests, `
             <div class="container interests-container">
                 <h3 class="bold">interests</h3>
                 
-            <section class="item">
-                <div class="main-skill skill left">first interrest</div>
-            </section> 
-            <section class="item">
-                <div class="main-skill skill left">second interrest</div>
-            </section> 
+            <ul>
+                <li>first interrest</li>
+            </ul> 
+            <ul>
+                <li>second interrest</li>
+            </ul> 
             </div>`);
     });
 });

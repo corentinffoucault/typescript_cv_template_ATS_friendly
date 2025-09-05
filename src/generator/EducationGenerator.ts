@@ -21,11 +21,9 @@ export default class EducationGenerator {
         return `
             <article>
                 <header>
-                  <h5>${LinkGenerator.generate(education.url, education.institution)}</h5>
-                  <div>
+                    ${LinkGenerator.generate(education.url, education.institution)} -
                     ${education.area && `<strong>${education.area}</strong>`}
                     ${education.endDate}
-                  </div>
                 </header>
               </article>`;
     }

@@ -11,6 +11,8 @@ export type Labels = {
     diploma: string;
     language: string;
     interests: string;
+    techSkill: string;
+    profile: string;
 };
 
 export type Location = {

@@ -6,7 +6,20 @@ import SkillGenerator from '../../src/generator/SkillsGenerator.js';
 describe('SkillsGenerator', () => {
     const skillGenerator = new SkillGenerator();
     it('generate minimal skills', () => {
-        const header = skillGenerator.generate([]);
+        const header = skillGenerator.generate([], {
+            works: 'works',
+            planguages: 'planguages',
+            team: 'team',
+            tools: 'tools',
+            environment: 'environment',
+            methods: 'methods',
+            worksSkill: 'worksSkill',
+            diploma: 'diploma',
+            language: 'language',
+            interests: 'interests',
+            techSkill: 'techSkill',
+            profile: 'profile'
+        });
         assert.equal(header, ``);
     });
 
@@ -14,19 +27,27 @@ describe('SkillsGenerator', () => {
         const header = skillGenerator.generate([{
             keywords: ['keywords'],
             name: 'name'
-        }]);
+        }], {
+            works: 'works',
+            planguages: 'planguages',
+            team: 'team',
+            tools: 'tools',
+            environment: 'environment',
+            methods: 'methods',
+            worksSkill: 'worksSkill',
+            diploma: 'diploma',
+            language: 'language',
+            interests: 'interests',
+            techSkill: 'techSkill',
+            profile: 'profile'
+        });
         assert.equal(header, `
             <div class="container skill-container">
                 <section id="skills">
-                
-            <section class="container">
-                <div class="title">
-                    <h3 class="bold">name</h3>
-                    <div class="keyline"></div>
-                </div>
-                <div class="minimal flex-container">
-                    <div class="main-skill skill left">keywords</div>
-                </div>
+                    <h3>techSkill</h3>
+                    
+            <section class="competence-line">
+                <h6>name :</h6> <p>keywords</p>
             </section>
                 </section>
             </div>`);

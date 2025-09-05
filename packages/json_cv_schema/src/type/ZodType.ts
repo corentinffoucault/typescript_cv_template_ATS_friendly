@@ -15,6 +15,8 @@ const LabelsSchema = z.object({
     diploma: z.string(),
     language: z.string(),
     interests: z.string(),
+    techSkill: z.string(),
+    profile: z.string(),
 });
 
 const LocationSchema = z.object({

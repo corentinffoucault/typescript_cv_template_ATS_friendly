@@ -6,11 +6,10 @@ import ResumeGenerator from '../../src/generator/ResumeGenerator.js';
 import EducationGenerator from '../../src/generator/EducationGenerator.js';
 import InterestGenerator from '../../src/generator/InterestsGenerator.js';
 import HeaderGenerator from '../../src/generator/HeaderGenerator.js';
-import LanguageGenerator from '../../src/generator/LanguagesGenerator.js';
 import MetaGenerator from '../../src/generator/MetaGenerator.js';
 import SkillsGenerator from '../../src/generator/SkillsGenerator.js';
-import SimplifyWorksGenerator from '../../src/generator/SimplifyWorksGenerator.js';
-import SkillWorksGenerator from '../../src/generator/SkillWorksGenerator.js';
+import WorksGenerator from '../../src/generator/WorksGenerator.js';
+import LanguagesGenerator from '../../src/generator/LanguagesGenerator.js';
 
 describe('ResumeGenerator', async () => {
     let resumeGenerator: ResumeGenerator;
@@ -28,10 +27,6 @@ describe('ResumeGenerator', async () => {
             generate: sinon.stub(),
         });
         interestGenerator.generate.returns("generated interest");
-        var languageGenerator = sinon.createStubInstance(LanguageGenerator, {
-            generate: sinon.stub(),
-        });
-        languageGenerator.generate.returns("generated language");
         var metaGenerator = sinon.createStubInstance(MetaGenerator, {
             generate: sinon.stub(),
         });
@@ -40,24 +35,22 @@ describe('ResumeGenerator', async () => {
             generate: sinon.stub(),
         });
         skillsGenerator.generate.returns("generated skill");
-        var simplifyWorksGenerator = sinon.createStubInstance(SimplifyWorksGenerator, {
+        var worksGenerator = sinon.createStubInstance(WorksGenerator, {
             generate: sinon.stub(),
         });
-        simplifyWorksGenerator.generate.returns("generated workSimplify");
-        var skillWorksGenerator = sinon.createStubInstance(SkillWorksGenerator, {
+        worksGenerator.generate.returns("generated work");
+        var languagesGenerator = sinon.createStubInstance(LanguagesGenerator, {
             generate: sinon.stub(),
         });
-        skillWorksGenerator.generate.returns("generated workSkill");
-
+        languagesGenerator.generate.returns("generated language");
         resumeGenerator = new ResumeGenerator(
             metaGenerator,
             headerGenerator,
             educationGenerator,
-            languageGenerator,
             skillsGenerator,
             interestGenerator,
-            skillWorksGenerator,
-            simplifyWorksGenerator
+            worksGenerator,
+            languagesGenerator
         );
     });
 
@@ -88,7 +81,9 @@ describe('ResumeGenerator', async () => {
                 worksSkill: 'worksSkill',
                 diploma: 'diploma',
                 language: 'language',
-                interests: 'interests'
+                interests: 'interests',
+                techSkill: 'techSkill',
+                profile: 'profile'
             }
         }, Buffer.from(''), Buffer.from(''));
 
@@ -110,17 +105,11 @@ describe('ResumeGenerator', async () => {
                     generated header 
                 </div>
                 <div class="body">
-                <aside class="left-column">
-                    generated education
-                    generated language
+                    generated language 
                     generated skill 
+                    generated work 
+                    generated education
                     generated interest
-                </aside>
-                <div class="vl"></div>
-                    <div class="right-column">
-                        generated workSkill 
-                        generated workSimplify 
-                    </div>
                 </div>
             </body>
         </html>`);
@@ -153,7 +142,9 @@ describe('ResumeGenerator', async () => {
                 worksSkill: 'worksSkill',
                 diploma: 'diploma',
                 language: 'language',
-                interests: 'interests'
+                interests: 'interests',
+                techSkill: 'techSkill',
+                profile: 'profile'
             }
         }, Buffer.from('style'), Buffer.from('script'));
 
@@ -175,17 +166,11 @@ describe('ResumeGenerator', async () => {
                     generated header 
                 </div>
                 <div class="body">
-                <aside class="left-column">
-                    generated education
-                    generated language
+                    generated language 
                     generated skill 
+                    generated work 
+                    generated education
                     generated interest
-                </aside>
-                <div class="vl"></div>
-                    <div class="right-column">
-                        generated workSkill 
-                        generated workSimplify 
-                    </div>
                 </div>
             </body>
         </html>`);

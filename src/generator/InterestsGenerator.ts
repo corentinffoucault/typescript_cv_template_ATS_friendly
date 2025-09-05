@@ -15,8 +15,8 @@ export default class InterestGenerator {
 
     private generateInterest(interest: Interest): string {
         return `
-            <section class="item">
-                <div class="main-skill skill left">${interest.name}</div>
-            </section> `;
+            <ul>
+                <li>${interest.name}</li>
+            </ul> `;
     }
 }

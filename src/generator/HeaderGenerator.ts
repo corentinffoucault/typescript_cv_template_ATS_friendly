@@ -1,6 +1,6 @@
 import IconGenerator from '../utils/IconGenerator.js';
 import LinkGenerator from '../utils/LinkGenerator.js';
-import type { Basics, Location, Profiles } from '../../packages/json_cv_schema/src/type/Type.js';
+import type { Basics, Labels, Location, Profiles } from '../../packages/json_cv_schema/src/type/Type.js';
 
 export default class HeaderGenerator {
 
@@ -14,22 +14,28 @@ export default class HeaderGenerator {
         return Math.abs(ageDate.getUTCFullYear() - 1970);
     }
 
-    public generate(basics: Basics): string {
-        const { email, birth, label, location, name, phone, profiles = [] } = basics;
+    public generate(basics: Basics, labels: Labels): string {
+        const { email, birth, label, location, name, phone, summary, profiles = [] } = basics;
 
         return `
             <header class="masthead">
-                <div class="menu">
-                    <div><h6>${name}</h6></div>
-                    <div>${birth ? `Age: ${this.calculateAge(new Date(birth))}` : ''}</div>
-                    <ul class="icon-list">
-                        ${this.generateCity(location)}
-                        ${this.generateEMail(email)}
-                        ${this.generatePhone(phone)}
-                        ${profiles.map((profile) => HeaderGenerator.generateProfile(profile)).join('')}
-                    </ul>
+                <div class="description">
+                    <div class="menu">
+                        <div><h6>${name}</h6></div>
+                        <div>${birth ? `Age: ${this.calculateAge(new Date(birth))}` : ''}</div>
+                        <ul class="icon-list">
+                            ${this.generateCity(location)}
+                            ${this.generateEMail(email)}
+                            ${this.generatePhone(phone)}
+                            ${profiles.map((profile) => HeaderGenerator.generateProfile(profile)).join('')}
+                        </ul>
+                    </div>
+                    <div class="content"><h1>${label}</h1></div>
                 </div>
-                <div class="content"><h1>${label}</h1></div>
+                <div class="summary">
+                    <h6>${labels.profile}</h6>
+                    ${summary ? summary : ''}
+                </div>
             </header>`;
     }
 

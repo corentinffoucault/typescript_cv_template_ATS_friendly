@@ -5,10 +5,6 @@ export default class DateTimeTools {
     }
 
     private static formatDate(lang: Intl.LocalesArgument, dateString: string): string {
-        return new Date(dateString).toLocaleDateString(lang, {
-            month: 'short',
-            year: 'numeric',
-            timeZone: 'UTC',
-        });
+        return new Date(dateString).getFullYear().toString();
     }
 }
